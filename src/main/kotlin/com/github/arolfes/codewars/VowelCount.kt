@@ -6,13 +6,7 @@ package com.github.arolfes.codewars
 object VowelCount {
 
     fun getCount(str: String): Int {
-        var count = 0
-        str.forEach { ch ->
-            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
-                count++
-        }
-
-        return count
+        return str.count{x->"aeiou".contains(x)}
     }
 
 }
