@@ -7,9 +7,10 @@ object LeapYear {
 
     fun isLeapYear(year: Int) : Boolean {
 
-        if (year % 400 == 0) return true
-        if (year % 100 == 0) return false
-        if (year % 4 == 0) return true
-        return false
+        return when {
+            year % 400 == 0 -> true
+            year % 100 == 0 -> false
+            else -> year % 4 == 0
+        }
     }
 }
