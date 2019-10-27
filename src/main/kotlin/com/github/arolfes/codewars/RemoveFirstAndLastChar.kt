@@ -6,6 +6,6 @@ package com.github.arolfes.codewars
 object RemoveFirstAndLastChar {
 
     fun removeChar(str: String): String {
-        return str.removeRange(0,1).removeRange(str.length-2, str.length-1)
+        return str.substring(1, str.length - 1)
     }
 }
