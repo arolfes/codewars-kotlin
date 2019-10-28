@@ -51,3 +51,9 @@ resultList[3] = "Llll"
 resultList[4] = "Ooooo"
 */
 ``` 
+
+### CountingDuplicates
+
+see inline comments
+
+remember grouping on string and then eachCount on grouping 

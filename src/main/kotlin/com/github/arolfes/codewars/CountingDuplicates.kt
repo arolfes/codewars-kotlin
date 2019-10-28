@@ -6,26 +6,12 @@ package com.github.arolfes.codewars
 object CountingDuplicates {
 
     fun duplicateCount(text: String): Int {
-        val counts = mutableMapOf<Char, Int>()
-        // counting occurrence of each character
-        fun countOccurrence(c: Char): Boolean {
-            counts[c] = counts[c]?.plus(1) ?: 1
-            return true
-        }
-        text.toLowerCase().filter { countOccurrence(it) }
-
-        var counter = 0
-        fun increaseCounter(): Boolean {
-            counter = counter.inc()
-            return true
-        }
-        // increase counter of duplicates
-        counts.filter {
-            when {
-                (it.value > 1) -> increaseCounter()
-                else -> false
-            }
-        }
-        return counter
+        return text.
+                // groups all chars together
+                groupingBy { it.toLowerCase() }.
+                // counting the occurrence of each char and returns a map with char, int
+                eachCount().
+                // counting all values which are higher then one
+                values.count { it > 1 }
     }
 }
