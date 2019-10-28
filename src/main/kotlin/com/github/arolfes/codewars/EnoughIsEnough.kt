@@ -8,18 +8,8 @@ import kotlin.math.absoluteValue
 object EnoughIsEnough {
 
     fun deleteNth(elements:IntArray, maxOcurrences:Int):IntArray {
-        val linkedMap: LinkedHashMap<Int, Int> = linkedMapOf()
-
-        val exists = { input: Int ->
-            val t = linkedMap[input]?.absoluteValue ?: 0
-            if (t < maxOcurrences) {
-                linkedMap[input] = t.inc()
-                true
-            } else {
-                false
-            }
-        }
-
-        return elements.filter { x: Int -> exists(x) }.toIntArray()
+        val counts = mutableMapOf<Int, Int>()
+        fun countFilter(x: Int) = counts.compute(x, { _, count -> count?.plus(1) ?: 1 })!! <= maxOcurrences
+        return elements.filter { countFilter(it) }.toIntArray()
     }
 }

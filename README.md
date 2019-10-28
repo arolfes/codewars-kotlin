@@ -27,3 +27,10 @@ return when {
 // sum is done by count 
 str.count{x->"aeiou".contains(x)}
 ```
+
+### EnoughIsEnough
+```kotlin
+// returns result of compare counts.value for given key with maxOccurences
+// inside it increases the value for given key 
+fun countFilter(x: Int) = counts.compute(x, { _, count -> count?.plus(1) ?: 1 })!! <= maxOcurrences
+```
