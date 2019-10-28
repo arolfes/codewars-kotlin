@@ -34,3 +34,20 @@ str.count{x->"aeiou".contains(x)}
 // inside it increases the value for given key 
 fun countFilter(x: Int) = counts.compute(x, { _, count -> count?.plus(1) ?: 1 })!! <= maxOcurrences
 ```
+
+### Mumbling
+
+`string.mapIndexed` converts a string into a char list with index, do what you want on char
+`char.toString().toLowerCase().repeat(index)` when index is 0 then it return `""` :-)
+
+```kotlin
+// this would be like
+"Hello".mapIndexed { index, char -> char.toUpperCase() + char.toString().toLowerCase().repeat(index) }
+/*
+resultList[0] = "H"
+resultList[1] = "Ee"
+resultList[2] = "Lll"
+resultList[3] = "Llll"
+resultList[4] = "Ooooo"
+*/
+``` 
